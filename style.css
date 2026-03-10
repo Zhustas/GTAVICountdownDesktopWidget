@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+img {
+    border-radius: 10px 10px 0 0;
+    width: 300px;
+}
+
+#countdown-container {
+    background-color: rgb(211, 211, 211);
+    padding: 7px 0;
+    border-radius: 0 0 10px 10px;
+}
+
+#countdown {
+    text-align: center;
+    color: rgb(68, 68, 68);
+    font-size: large;
+    font-weight: 500;
+    user-select: none;
+}
