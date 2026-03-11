@@ -1,38 +1,24 @@
-const { app, BrowserWindow, screen } = require('electron');
+const { currentMonitor } = window.__TAURI__.window;
 
-const createWindow = () => {
-    const windowWidth = 300;
-    const windowHeight = 205;
-    const paddingX = 5;
-    const paddingY = 5;
+async function getScreenSize() {
+    try {
+        // Get the monitor where the current window is displayed
+        const monitor = await currentMonitor();
 
-    const primaryDisplay = screen.getPrimaryDisplay();
-    const { width: screenWidth } = primaryDisplay.workAreaSize;
+        if (monitor && monitor.size) {
+            console.log(`Screen width: ${monitor.size.width}px`);
+            console.log(`Screen height: ${monitor.size.height}px`);
+            return monitor.size;
+        } else {
+            console.warn('Could not retrieve monitor size.');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error getting screen size:', error);
+        return null;
+    }
+}
 
-    const win = new BrowserWindow({
-        autoHideMenuBar: true,
-        width: windowWidth,
-        height: windowHeight,
-        x: screenWidth - paddingX - windowWidth,
-        y: paddingY,
-        resizable: false,
-        frame: false,
-        skipTaskbar: true,
-    });
-
-    win.loadFile('index.html');
-};
-
-// Quit the app when all windows are closed
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit();
-});
-
-// Open a window if none are open
-app.whenReady().then(() => {
-    createWindow();
-
-    app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow();
-    });
-});
+// Example usage
+getScreenSize();
+console.log('Hi');

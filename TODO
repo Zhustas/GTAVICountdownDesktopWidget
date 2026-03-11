@@ -1,3 +1,5 @@
-1. Add exit button.
-2. Any way to reduce application size (currently 200 MB)?
-3. Any way to reduce used RAM (currently 90-100 MB)?
+[-] 1. Add exit button.
+[+] 2. Any way to reduce application size (currently 200 MB)?
+    Reduced to 10 MB using Tauri. 95%.
+[+] 3. Any way to reduce used RAM (currently 90-100 MB)?
+    Reduced to 5 MB using Tauri. 95%.
