@@ -5,26 +5,29 @@
     font-family: sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 #container {
     display: flex;
     flex-direction: column;
-    width: 300px;
-}
-
-img {
-    width: 300px;
+    height: 100%;
 }
 
 #countdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
     background-color: rgb(211, 211, 211);
-    padding: 7px 0;
 }
 
 #countdown {
-    text-align: center;
     color: rgb(68, 68, 68);
-    font-size: large;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     user-select: none;
 }
 

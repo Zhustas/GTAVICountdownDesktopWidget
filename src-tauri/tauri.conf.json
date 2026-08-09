@@ -11,10 +11,6 @@
         "windows": [
             {
                 "title": "Countdown",
-                "width": 300,
-                "height": 205,
-                "x": 1605,
-                "y": 7,
                 "skipTaskbar": true,
                 "resizable": false,
                 "decorations": false
