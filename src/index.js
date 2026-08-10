@@ -16,7 +16,7 @@ function pad(value) {
 }
 
 function toDisplayValue(value) {
-    return pad(Math.round(value));
+    return pad(Math.floor(value));
 }
 
 setInterval(() => {
