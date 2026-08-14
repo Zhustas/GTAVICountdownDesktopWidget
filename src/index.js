@@ -8,7 +8,7 @@ function updateCountdown(toWait) {
     const minutes = toDisplayValue((toWait / 1000 / 60) % 60);
     const seconds = toDisplayValue((toWait / 1000) % 60);
 
-    countdownP.textContent = `${days} d. ${hours}:${minutes}:${seconds}`;
+    setMainText(`${days} d. ${hours}:${minutes}:${seconds}`);
 }
 
 function pad(value) {
@@ -19,9 +19,20 @@ function toDisplayValue(value) {
     return pad(Math.floor(value));
 }
 
-setInterval(() => {
+function setMainText(text) {
+    countdownP.textContent = text;
+}
+
+const intervalId = setInterval(() => {
     const date = new Date();
     const toWait = GTA_VI.getTime() - date.getTime();
+
+    if (toWait <= 0) {
+        clearInterval(intervalId);
+        setMainText('!!! Bienvenido, Bienvenue !!!');
+
+        return;
+    }
 
     updateCountdown(toWait);
 }, 1000);
