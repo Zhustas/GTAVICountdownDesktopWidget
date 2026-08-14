@@ -1,4 +1,4 @@
-const GTA_VI = new Date(2026, 10, 19);
+import { GTA_VI, COUNTDOWN_OVER } from '/constants.js';
 
 const countdownP = document.querySelector('#countdown');
 
@@ -29,7 +29,7 @@ const intervalId = setInterval(() => {
 
     if (toWait <= 0) {
         clearInterval(intervalId);
-        setMainText('!!! Bienvenido, Bienvenue !!!');
+        setMainText(COUNTDOWN_OVER);
 
         return;
     }
