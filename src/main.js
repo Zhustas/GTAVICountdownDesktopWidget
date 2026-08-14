@@ -6,7 +6,7 @@ const currentWindow = await getCurrentWindow();
 
 const exitBtn = document.querySelector('#exit');
 exitBtn.addEventListener('click', async function () {
-    currentWindow.destroy();
+    await currentWindow.destroy();
 });
 
 const WINDOW_WIDTH_PERCENTAGE = 0.17, // 0.15
